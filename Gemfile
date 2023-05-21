@@ -3,11 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
+gem "aws-sdk-s3", require: false
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
 gem 'graphql'
 gem 'graphiql-rails'
+gem 'image_processing', '~> 1.2'
 gem 'rubocop'
 gem 'rubocop-rails'
 

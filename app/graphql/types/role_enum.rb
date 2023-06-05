@@ -1,6 +1,11 @@
 module Types
   class RoleEnum < Types::BaseEnum
-    Role.role_names.each_key do |name|
+
+    value 'admin'
+    value 'member'
+    value 'donar'
+
+    Role.role_name.each_key do |name|
       value name
     end
   end

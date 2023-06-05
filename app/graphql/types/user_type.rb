@@ -4,8 +4,10 @@ module Types
     field :full_name, String, null: false
     field :email, String, null: false
     field :gender, Types::GenderEnum
+    field :role, RoleType, null: false
 
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    def role
+      object.role
+    end
   end
 end

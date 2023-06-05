@@ -1,6 +1,6 @@
 # app/graphql/mutations/create_event.rb
 module Mutations
-  class CreateEvent < Mutations::BaseMutation
+  class CreateEvent < GraphQL::Schema::Mutation
     argument :event_params, Types::EventInputType, required: true
 
     field :event, Types::EventType, null: true

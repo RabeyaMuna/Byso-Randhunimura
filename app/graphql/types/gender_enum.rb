@@ -1,7 +1,10 @@
 
 module Types
   class GenderEnum < Types::BaseObject
-     Role.role_names.each_key do |name|
+    value 'male'
+    value 'female'
+    value 'other'
+     User.gender.each_key do |name|
       value name
     end
   end

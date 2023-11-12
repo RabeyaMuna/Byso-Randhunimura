@@ -5,7 +5,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :phone_number, unique: true, null: false
       t.string :email, null: false, unique: true
       t.string :uuid, null: false, unique: true, default: SecureRandom.uuid
-      t.integer :gender
+      t.integer :gender, index: true
+      t.integer :status, index: true
 
       t.references :role, foreign_key: true
 

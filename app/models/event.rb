@@ -5,6 +5,7 @@ class Event < ApplicationRecord
     has_one_attached :avatar
     has_one_attached :promo
     has_many_attached :images
+    has_many_attached :documents
 
-    validates :tittle, :event_description, :last_date_of_submission, :start_date_of_event, presence: true
+    validates :tittle, :event_description, :last_date_of_submission, :start_date_of_event, :required_donation_amount, :status, presence: true
 end

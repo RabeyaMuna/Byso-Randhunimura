@@ -5,6 +5,9 @@ class CreateUserPaysForEvents < ActiveRecord::Migration[7.0]
 
       t.references :user, foreign_key: true
       t.references :event, foreign_key: true
+      t.decimal :payment_method, null: false 
+      t.uuid :payment_id, unique: true
+      t.datetime :paid_on
 
       t.timestamps
     end

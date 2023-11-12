@@ -4,4 +4,5 @@ module Types
     field :createEvent, mutation: Mutations::CreateEvent
     field :createUser, mutation: Mutations::CreateUser
     field :createRole, mutation: Mutation::CreateRole
+  end
 end

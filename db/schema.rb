@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   create_table "events", force: :cascade do |t|
     t.string "tittle", null: false
-    t.string "uuid", default: "c658b3ee-574f-4ed5-90a2-ee6066466e5d", null: false
+    t.string "uuid", default: "627586fe-2a9c-4bf7-9cac-19222f31f8f4", null: false
     t.text "event_description"
     t.text "location"
     t.decimal "required_donation_amount"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   create_table "roles", force: :cascade do |t|
     t.integer "role_name", null: false
-    t.integer "uuid", default: 60, null: false
+    t.integer "uuid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_name"], name: "index_roles_on_role_name"
@@ -74,7 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.decimal "amount", default: "0.0", null: false
     t.bigint "user_id"
     t.bigint "event_id"
-    t.integer "payment_method", null: false
+    t.decimal "payment_method", null: false
+    t.decimal "donated_amount", default: "0.0", null: false
     t.uuid "payment_id"
     t.datetime "paid_on"
     t.datetime "created_at", null: false
@@ -87,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.string "full_name", null: false
     t.string "phone_number", null: false
     t.string "email", null: false
-    t.string "uuid", default: "e0261e87-40b0-4a4b-ac90-55599468037b", null: false
+    t.string "uuid", default: "1eb6d013-38cf-4917-88e4-10e4fecd34b6", null: false
     t.integer "gender"
     t.integer "status"
     t.bigint "role_id"

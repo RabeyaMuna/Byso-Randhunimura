@@ -9,8 +9,8 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.decimal :total_donation_amount_collected, default: 0.0
       t.datetime :start_date_of_event
       t.datetime :last_date_of_submission
-      t.integer :statue, index: true
-      t.integer :type, index: true
+      t.integer :status, index: true
+      t.string :type, index: true
       t.string :created_by, null: false, index: true
 
       

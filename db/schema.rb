@@ -44,27 +44,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   create_table "events", force: :cascade do |t|
     t.string "tittle", null: false
-    t.string "uuid", default: "627586fe-2a9c-4bf7-9cac-19222f31f8f4", null: false
+    t.string "uuid", default: "1e2f73b2-deca-4633-b868-7dc07b3e6cf1", null: false
     t.text "event_description"
     t.text "location"
     t.decimal "required_donation_amount"
     t.decimal "total_donation_amount_collected", default: "0.0"
     t.datetime "start_date_of_event"
     t.datetime "last_date_of_submission"
-    t.integer "statue"
-    t.integer "type"
+    t.integer "status"
+    t.string "type"
     t.string "created_by", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_by"], name: "index_events_on_created_by"
-    t.index ["statue"], name: "index_events_on_statue"
+    t.index ["status"], name: "index_events_on_status"
     t.index ["tittle"], name: "index_events_on_tittle"
     t.index ["type"], name: "index_events_on_type"
   end
 
   create_table "roles", force: :cascade do |t|
     t.integer "role_name", null: false
-    t.integer "uuid", null: false
+    t.integer "uuid", default: 4, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_name"], name: "index_roles_on_role_name"
@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.decimal "amount", default: "0.0", null: false
     t.bigint "user_id"
     t.bigint "event_id"
-    t.decimal "payment_method", null: false
+    t.integer "payment_method", null: false
     t.decimal "donated_amount", default: "0.0", null: false
     t.uuid "payment_id"
     t.datetime "paid_on"
@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.string "full_name", null: false
     t.string "phone_number", null: false
     t.string "email", null: false
-    t.string "uuid", default: "1eb6d013-38cf-4917-88e4-10e4fecd34b6", null: false
+    t.string "uuid", default: "ca806835-b230-4770-aa16-82c4cad93ead", null: false
     t.integer "gender"
     t.integer "status"
     t.bigint "role_id"

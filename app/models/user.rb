@@ -10,6 +10,12 @@ class User < ApplicationRecord
     other: 2
   }
 
+  enum status:
+  {
+    active: 0,
+    inactive: 1
+  }
+
    validates :full_name, :email, :phone_number, :status, presence: true # this is up to you
 
    validates_uniqueness_of :phone_number, :email

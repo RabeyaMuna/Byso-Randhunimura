@@ -7,5 +7,12 @@ class Event < ApplicationRecord
     has_many_attached :images
     has_many_attached :documents
 
+     enum status:
+        {
+            open: 0,
+            close: 1,
+            draft: 2
+        }
+
     validates :tittle, :event_description, :last_date_of_submission, :start_date_of_event, :required_donation_amount, :status, presence: true
 end

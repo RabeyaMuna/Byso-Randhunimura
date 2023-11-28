@@ -15,4 +15,6 @@ class Event < ApplicationRecord
         }
 
     validates :tittle, :event_description, :last_date_of_submission, :start_date_of_event, :required_donation_amount, :status, presence: true
+
+    accepts_nested_attributes_for :user_pays_for_events, allow_destroy: true
 end

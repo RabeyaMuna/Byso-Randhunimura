@@ -10,5 +10,6 @@ module Types
     argument :total_donation_amount_collected, Float, required: false
     argument :start_date_of_event, GraphQL::Types::ISO8601DateTime, required: true
     argument :last_date_of_submission, GraphQL::Types::ISO8601DateTime, required: true
+    argument :user_pays_for_events_attributes, [Input::UserPaysForEventInputType], required: false
   end
 end

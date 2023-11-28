@@ -1,7 +1,7 @@
 # app/graphql/mutations/create_event.rb
 module Mutations
   class CreateUser <GraphQL::Schema::Mutation
-    argument :user_params, Types::UserInputType, required: true
+    argument :user_params, Types::Input::UserInputType, required: true
 
     field :user, Types::UserType, null: true
     field :errors, [String], null: false

@@ -12,6 +12,7 @@ module Types
     field :promo_url, String
     field :image_urls, [String]
     field :status, Enums::EventStatusEnum
+    field :user_pays_for_events, [UserPaysForEventType], null: true
 
     def avatar_url
       object.avatar.service_url if object.avatar.attached?

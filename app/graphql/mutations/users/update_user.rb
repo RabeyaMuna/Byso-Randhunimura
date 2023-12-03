@@ -1,5 +1,6 @@
 # app/graphql/mutations/create_event.rb
 module Mutations
+  module Users 
   class UpdateeUser <GraphQL::Schema::Mutation
     argument :id, ID, required: true
     argument :user_params, Types::Input::UserInputType, required: true
@@ -16,3 +17,4 @@ module Mutations
     end
   end
 end
+end 

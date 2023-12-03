@@ -1,5 +1,6 @@
 # app/graphql/mutations/create_event.rb
 module Mutations
+  module Users
   class CreateRole < GraphQL::Schema::Mutation
     argument :role_params, Types::Input::RoleInputType, required: true
 
@@ -16,3 +17,4 @@ module Mutations
     end
   end
 end
+end 

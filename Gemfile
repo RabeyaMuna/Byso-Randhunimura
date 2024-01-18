@@ -13,6 +13,10 @@ gem 'image_processing', '~> 1.2'
 gem 'pry'
 gem 'rubocop'
 gem 'rubocop-rails'
+gem 'rack-cors'
+gem 'recursive-open-struct'
+gem 'search_object'
+gem 'search_object_graphql'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

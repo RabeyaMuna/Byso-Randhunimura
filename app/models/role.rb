@@ -4,7 +4,7 @@ class Role < ApplicationRecord
     enum role_name: {
     admin: 0,
     member: 1,
-    doner: 2
+    donar: 2
   }
 
    validates :role_name, presence: true # this is up to you

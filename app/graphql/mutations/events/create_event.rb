@@ -4,7 +4,7 @@ module Mutations
   class CreateEvent < GraphQL::Schema::Mutation
     argument :event_params, Types::Input::EventInputType, required: true
 
-    field :event, Types::EventType, null: true
+    field :event, Types::Input::EventType, null: true
     field :errors, [String], null: false
 
     def resolve(event_params:)

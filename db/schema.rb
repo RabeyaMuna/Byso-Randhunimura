@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   create_table "events", force: :cascade do |t|
     t.string "tittle", null: false
-    t.string "uuid", default: "1e2f73b2-deca-4633-b868-7dc07b3e6cf1", null: false
+    t.string "uuid", default: "ba8ad9da-2e9f-4b69-9629-033ffe497752", null: false
     t.text "event_description"
     t.text "location"
     t.decimal "required_donation_amount"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   create_table "roles", force: :cascade do |t|
     t.integer "role_name", null: false
-    t.integer "uuid", default: 4, null: false
+    t.integer "uuid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_name"], name: "index_roles_on_role_name"
@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.string "full_name", null: false
     t.string "phone_number", null: false
     t.string "email", null: false
-    t.string "uuid", default: "ca806835-b230-4770-aa16-82c4cad93ead", null: false
+    t.string "uuid", default: "619844ab-7835-4268-be85-2320b63fdf5b", null: false
     t.integer "gender"
     t.integer "status"
     t.bigint "role_id"

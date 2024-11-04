@@ -1,7 +1,7 @@
 module Types
   class UserPaysForEventType < Types::BaseObject
     field :id, ID, null: false
-    field :title, String
+    field :tittle, String
     field :pages, Integer
     field :rating, Float
     field :year_published, Integer

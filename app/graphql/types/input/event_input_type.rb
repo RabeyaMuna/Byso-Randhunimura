@@ -2,7 +2,7 @@
 module Types
   module Input
     class EventInputType < Types::BaseInputObject
-      argument :title, String, required: true
+      argument :tittle, String, required: true
       argument :event_description, String, required: false
       argument :location, String, required: false
       argument :required_donation_amount, Float, required: true

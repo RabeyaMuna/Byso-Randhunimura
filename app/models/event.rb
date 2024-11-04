@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+    belongs_to :created_by, class_name: 'User' 
+    
     has_many :user_pays_for_events, dependent: :destroy, inverse_of: :event
     has_many :users, through: :user_event
 

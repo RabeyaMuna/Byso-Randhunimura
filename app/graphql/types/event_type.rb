@@ -1,7 +1,7 @@
 module Types
   class EventType < Types::BaseObject
     field :id, ID, null: false
-    field :title, String
+    field :tittle, String
     field :total_donation_amount_collected, Float
     field :required_donation_amount, Float, null: false
     field :event_description, String

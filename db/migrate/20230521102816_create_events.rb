@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.datetime :last_date_of_submission
       t.integer :status, index: true
       t.string :type, index: true
-      t.string :created_by, null: false, index: true
+      t.references :created_by, null: false, foreign_key: { to_table: :users }, index: true  # Reference to users table
 
       
       t.timestamps

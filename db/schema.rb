@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   create_table "events", force: :cascade do |t|
     t.string "tittle", null: false
-    t.string "uuid", default: "ba8ad9da-2e9f-4b69-9629-033ffe497752", null: false
+    t.string "uuid", default: "16f4b0f9-821b-4f7f-8ac4-4c88e43fa96d", null: false
     t.text "event_description"
     t.text "location"
     t.decimal "required_donation_amount"
@@ -53,10 +53,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.datetime "last_date_of_submission"
     t.integer "status"
     t.string "type"
-    t.string "created_by", null: false
+    t.bigint "created_by_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["created_by"], name: "index_events_on_created_by"
+    t.index ["created_by_id"], name: "index_events_on_created_by_id"
     t.index ["status"], name: "index_events_on_status"
     t.index ["tittle"], name: "index_events_on_tittle"
     t.index ["type"], name: "index_events_on_type"
@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
     t.string "full_name", null: false
     t.string "phone_number", null: false
     t.string "email", null: false
-    t.string "uuid", default: "619844ab-7835-4268-be85-2320b63fdf5b", null: false
+    t.string "uuid", default: "0961561b-e1be-40fd-8ad4-036d6a594789", null: false
     t.integer "gender"
     t.integer "status"
     t.bigint "role_id"
@@ -102,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_113551) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "users", column: "created_by_id"
   add_foreign_key "user_pays_for_events", "events"
   add_foreign_key "user_pays_for_events", "users"
   add_foreign_key "users", "roles"

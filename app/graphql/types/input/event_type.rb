@@ -1,7 +1,7 @@
 # app/graphql/types/event_input_type.rb
 module Types
   module Input
-    class EventInputType < Types::BaseInputObject
+    class EventType < Types::BaseInputObject
       argument :tittle, String, required: true
       argument :event_description, String, required: false
       argument :location, String, required: false
@@ -11,7 +11,7 @@ module Types
       argument :total_donation_amount_collected, Float, required: false
       argument :start_date_of_event, GraphQL::Types::ISO8601DateTime, required: true
       argument :last_date_of_submission, GraphQL::Types::ISO8601DateTime, required: true
-      argument :user_pays_for_events_attributes, [Input::UserPaysForEventInputType], required: false
+      argument :user_pays_for_events_attributes, [Input::UserPaysForEventType], required: false
     end
   end
 end

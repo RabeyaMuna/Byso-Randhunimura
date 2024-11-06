@@ -49,9 +49,9 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
   def mutation(user_params)
     <<~GQL
       mutation {
-        createUser(input: {
+        createUser(
           userParams: #{user_params}
-        }) {
+        ) {
           user {
             fullName
             email

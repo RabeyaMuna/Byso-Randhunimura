@@ -1,18 +1,18 @@
 module Mutations
     module Users
-    class Role < GraphQL::Schema::Mutation
-        argument :role_params, Types::Input::RoleInputType, required: true
-        argument :id, ID, required: true
+        class Role < GraphQL::Schema::Mutation
+            argument :role_params, Types::Input::RoleType, required: true
+            argument :id, ID, required: true
 
-        field :role, Types::RoleType, null: true
+            field :role, Types::RoleType, null: true
 
-        def resolve(id:, role_params:)
-            role = Role.find(id)
+            def resolve(id:, role_params:)
+                role = Role.find(id)
 
-            role.update!(role_params)
+                role.update!(role_params)
 
-            return role
+                return role
+            end
         end
     end
-end
 end 

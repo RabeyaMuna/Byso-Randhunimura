@@ -1,7 +1,7 @@
 # app/graphql/types/input/user_pays_for_event_input_type.rb
 module Types
   module Input
-    class UserPaysForEventInputType < Types::BaseInputObject
+    class UserPaysForEventType < Types::BaseInputObject
       argument :amount, Float, required: true
       argument :user_id, ID, required: true
       argument :event_id, ID, required: true

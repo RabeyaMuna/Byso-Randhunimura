@@ -2,7 +2,7 @@
 module Mutations
   module Events
     class CreateEvent < GraphQL::Schema::Mutation
-      argument :event_params, Types::Input::EventInputType, required: true
+      argument :event_params, Types::Input::EventType, required: true
 
       field :event, Types::Input::EventType, null: true
       field :errors, [String], null: false

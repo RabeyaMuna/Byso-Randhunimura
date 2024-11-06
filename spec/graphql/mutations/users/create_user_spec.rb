@@ -53,6 +53,7 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
           userParams: #{user_params}
         ) {
           user {
+            id
             fullName
             email
             phoneNumber

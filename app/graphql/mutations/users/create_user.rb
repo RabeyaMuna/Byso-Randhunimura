@@ -2,9 +2,9 @@
 module Mutations
   module Users
     class CreateUser <GraphQL::Schema::Mutation
-      argument :user_params, Types::Input::UserType, required: true
+      argument :user_params, Types::Input::UserAttributes, required: true
 
-      field :user, Types::UserType, null: true
+      field :user, Types::UserType, null: false
       field :errors, [String], null: false
 
       def resolve(user_params:)

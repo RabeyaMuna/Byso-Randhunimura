@@ -2,11 +2,13 @@
 
 module Types
   module Input
-    class UserType < Types::BaseInputObject
+    class UserAttributes < Types::BaseInputObject
       argument :full_name, String, required: true
       argument :phone_number, String, required: true
       argument :email, String, required: true
+      argument :role_id, ID, required: true
       argument :gender, Enums::UserGenderEnum, required: false
+      argument :status, Enums::UserStatusEnum, required: true
     end
   end
-end 
+end

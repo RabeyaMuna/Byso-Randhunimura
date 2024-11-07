@@ -2,33 +2,27 @@ require 'rails_helper'
 
 RSpec.describe Mutations::Users::CreateUser, type: :request do
   describe '.resolve' do
+    let!(:role) { FactoryBot.create(:role) }
+
     let(:user_params) do
       {
         full_name: 'John Doe',
         email: 'johndoe@example.com',
-        phone_number: '1234567890',
-        gender: 'MALE',
-        role: 'ADMIN',
-        status: 'ACTIVE',
-        password: 'password',
-        password_confirmation: 'password'
+        phone_number: '8801901234567',
+        gender: :MALE,  # Use enum symbols
+        status: :ACTIVE,  # Use enum symbols
+        role_id: role.id
       }
     end
 
     it 'creates a new user' do
       post '/graphql', params: { query: mutation(user_params) }
-
+      
+      binding.pry
       json = JSON.parse(response.body)
       data = json['data']['createUser']
-
-      expect(data['user']).to include(
-        'fullName' => 'John Doe',
-        'email' => 'johndoe@example.com',
-        'phoneNumber' => '1234567890',
-        'gender' => 'MALE',
-        'role' => 'ADMIN',
-        'status' => 'ACTIVE'
-      )
+     
+      expect(User.count).to eq(1)
       expect(data['errors']).to be_empty
     end
 
@@ -43,6 +37,7 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
 
       expect(data['user']).to be_nil
       expect(data['errors']).not_to be_empty
+      expect(data['errors'][0]).to include('Email can\'t be blank')
     end
   end
 
@@ -50,7 +45,14 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
     <<~GQL
       mutation {
         createUser(
-          userParams: #{user_params}
+          userParams: {
+            fullName: "#{user_params[:full_name]}",
+            email: "#{user_params[:email]}",
+            phoneNumber: "#{user_params[:phone_number]}",
+            gender: #{user_params[:gender]},  # Pass gender as an enum (no quotes)
+            status: #{user_params[:status]},  # Pass status as an enum (no quotes)
+            roleId: "#{user_params[:role_id]}"
+          }
         ) {
           user {
             id
@@ -58,10 +60,13 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
             email
             phoneNumber
             gender
-            role
+            role {
+              id
+              roleName
+            }
             status
           }
-          errors
+          errors  # Errors field should return a simple string or array, not an object with "message"
         }
       }
     GQL

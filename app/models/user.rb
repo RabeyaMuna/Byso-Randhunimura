@@ -5,20 +5,20 @@ class User < ApplicationRecord
     has_many :events, through: :user_pays_for_events
 
     enum gender: {
-    male: 0,
-    female: 1,
-    other: 2
+    MALE: 0,
+    FEMALE: 1,
+    OTHER: 2
   }
 
   enum status:
   {
-    active: 0,
-    inactive: 1
+    ACTIVE: 0,
+    INACTIVE: 1
   }
 
-   validates :full_name, :email, :phone_number, :status, presence: true # this is up to you
+  validates :full_name, :email, :phone_number, :status, presence: true # this is up to you
 
-   validates_uniqueness_of :phone_number, :email
+  validates_uniqueness_of :phone_number, :email
 
-   validates_plausible_phone :phone_number
+  validates_plausible_phone :phone_number
 end

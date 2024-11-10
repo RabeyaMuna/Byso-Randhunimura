@@ -23,3 +23,6 @@ Things you may want to cover:
 
 * ...
 # Byso-Randhunimura
+
+## Class Diagram of the project
+![Alt text](Byso-Page-1.drawio.png)

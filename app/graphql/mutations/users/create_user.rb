@@ -8,12 +8,14 @@ module Mutations
       field :errors, [String], null: false
 
       def resolve(user_params:)
-        user = User.new(user_params.to_h)
+        user = User.create!(user_params.to_h)
 
         if user.save
-          { user: user, errors: [] }
+          binding.pry
+         return { user: user, errors: [] }
         else
-          { user: nil, errors: user.errors.full_messages }
+          binding.pry
+         return { user: nil, errors: user.errors.full_messages }
         end
       end
     end

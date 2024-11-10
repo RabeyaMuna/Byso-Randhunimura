@@ -1,7 +1,7 @@
 module Enums
   class RoleEnum < Enums::BaseEnum
-    value 'ADMIN', value: 0
-    value 'MEMBER', value: 1
-    value 'DONOR', value: 2
+    value 'ADMIN', value: :admin
+    value 'MEMBER', value: :member
+    value 'DONOR', value: :donor
   end
 end

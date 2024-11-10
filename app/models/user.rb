@@ -4,17 +4,17 @@ class User < ApplicationRecord
     has_many :user_pays_for_events, dependent: :destroy, inverse_of: :user
     has_many :events, through: :user_pays_for_events
 
-    enum gender: {
-    MALE: 0,
-    FEMALE: 1,
-    OTHER: 2
+  enum gender: {
+    male: 0,
+    female: 1,
+    other: 2
   }
 
-  enum status:
-  {
-    ACTIVE: 0,
-    INACTIVE: 1
+  enum status: {
+    active: 0,
+    inactive: 1
   }
+
 
   validates :full_name, :email, :phone_number, :status, presence: true # this is up to you
 

@@ -9,8 +9,8 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
         full_name: 'John Doe',
         email: 'johndoe@example.com',
         phone_number: '8801901234567',
-        gender: :MALE,  # Use enum symbols
-        status: :ACTIVE,  # Use enum symbols
+        gender: 'MALE',  # Use the correct enum value (uppercase)
+        status: 'ACTIVE',  # Use the correct enum value (uppercase)
         role_id: role.id
       }
     end
@@ -18,9 +18,9 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
     it 'creates a new user' do
       post '/graphql', params: { query: mutation(user_params) }
       
-      binding.pry
       json = JSON.parse(response.body)
-      data = json['data']['createUser']
+      binding.pry
+      data = json['data']
      
       expect(User.count).to eq(1)
       expect(data['errors']).to be_empty
@@ -31,13 +31,12 @@ RSpec.describe Mutations::Users::CreateUser, type: :request do
       user_params[:email] = ''
 
       post '/graphql', params: { query: mutation(user_params) }
-
+      binding.pry
       json = JSON.parse(response.body)
-      data = json['data']['createUser']
 
-      expect(data['user']).to be_nil
-      expect(data['errors']).not_to be_empty
-      expect(data['errors'][0]).to include('Email can\'t be blank')
+      expect(json['data']).to be_nil
+      expect(json['errors']).not_to be_empty
+      expect(json['errors'][0]).to include('Email can\'t be blank')
     end
   end
 
